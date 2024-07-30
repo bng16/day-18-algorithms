@@ -50,23 +50,41 @@ let sortedArr = Array.from({ length: 500 }, (_, i) => i);
 
 
 
-const binarySearch = (arr, target) => {
-  let min = 0;
-  let max = arr.length - 1;
+// const binarySearch = (arr, target) => {
+//   let min = 0;
+//   let max = arr.length - 1;
 
-  while (max >= min) {
-    let mid = Math.floor((min + max) / 2);
+//   while (max >= min) {
+//     let mid = Math.floor((min + max) / 2);
 
-    if (arr[mid] === target) {
-      return mid;
-    } else if (arr[mid] > target) {
-      max = mid - 1;
-    } else {
-      min = mid + 1;
-    }
-  }
-  return -1;
-};
+//     if (arr[mid] === target) {
+//       return mid;
+//     } else if (arr[mid] > target) {
+//       max = mid - 1;
+//     } else {
+//       min = mid + 1;
+//     }
+//   }
+//   return -1;
+// };
 
-let target=5555;
-console.log(binarySearch(sortedArr,target)!=-1 ? `the index of target found ${binarySearch(sortedArr,target)}` :'item not found in the array');
+// let target=5555;
+// console.log(binarySearch(sortedArr,target)!=-1 ? `the index of target found ${binarySearch(sortedArr,target)}` :'item not found in the array');
+
+
+
+
+let hashMap=new Map();
+
+let str='Lorem ipsum dolor sit amet consectetur, adipisicing elit. Totam expedita labore provident odio, unde blanditiis velit explicabo?'
+
+for(let i=0; i<str.length;i++){
+  let char=str[i];
+  let count=hashMap.get(char) || 0;
+
+  hashMap.set(char, count+1);
+}
+
+for(const [key, value] of hashMap){
+  console.log(key,value);
+}
